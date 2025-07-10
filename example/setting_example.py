@@ -1,4 +1,4 @@
-from client import OpenAIClient
+from openai_client import OpenAIClient
 
 # 使用 gpt-3.5-turbo，回應更隨機
 client = OpenAIClient(model="gpt-3.5-turbo", temperature=0.9)
