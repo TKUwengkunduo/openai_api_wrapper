@@ -1,4 +1,4 @@
-from client import OpenAIClient
+from openai_client import OpenAIClient
 
 client = OpenAIClient()
 
