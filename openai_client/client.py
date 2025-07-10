@@ -61,6 +61,14 @@ class OpenAIClient:
                             "type": "image_url",
                             "image_url": {"url": item.get('url')}
                         })
+                    elif t == 'image_data':
+                        image_data = item.get('data')
+                        if image_data is not None:
+                            b64 = encode_image_to_base64(image_data, is_raw=True)
+                            processed.append({
+                                "type": "image_url",
+                                "image_url": {"url": f"data:image/jpeg;base64,{b64}"}
+                            })
                     else:
                         logger.warning(f"Unknown content type: {t}")
                 api_messages.append({"role": role, "content": processed})
